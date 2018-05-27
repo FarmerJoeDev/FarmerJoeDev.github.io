@@ -58,8 +58,10 @@
 					isLive(i);
 				    if(streamerData[i][5]){
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1]+' <span class="live">[LIVE]</span>';
+				    	document.getElementById("bu_c_"+i).innerHTML=streamerData[i][1]+' <span class="live">[CHAT LIVE]</span>';
 				    }else{
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1];
+				    	document.getElementById("bu_c_"+i).innerHTML=streamerData[i][1]+" [CHAT]";
 				    }
 				  }
 			}
@@ -97,10 +99,10 @@
 				for (var j = 0; j < streamerData[i][4].length; j++){
 				    var iframes = document.getElementById("stream_iframes");
 				    if (!streamerData[i][6][j]) {
-				    	var frt = document.createElement('span');
-				    	frt.innerHTML = streamerData[i][1];
-				    	frt.id="fr_c_"+i;
-				    	iframes.appendChild(frt);
+				    	//var frt = document.createElement('span');
+				    	//frt.innerHTML = streamerData[i][1];
+				    	//frt.id="fr_c_"+i;
+				    	//iframes.appendChild(frt);
 				    	streamerData[i][6][j]=true;
 				    	var fr = document.createElement('iframe');
 				    	fr.id="fr_c_"+i;
@@ -131,7 +133,7 @@
 					var buc = document.createElement('BUTTON');
 					buc.setAttribute("onclick","toggleChat("+i+");");
 					buc.setAttribute("id","bu_c_"+i);
-					buc.innerHTML = streamerData[i][1] + " [Chat]";
+					buc.innerHTML = streamerData[i][1] + " [CHAT]";
 					slc.appendChild(buc);
 					slc.appendChild(document.createElement('BR'));
 	
