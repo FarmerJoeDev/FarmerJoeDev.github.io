@@ -226,7 +226,7 @@
 						xmlhttp.onreadystatechange = function() {
 						    if (this.readyState == 4 && this.status == 200) {
 						        var d = JSON.parse(this.responseText);
-						        console.log("https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id="+streamerData[i][4][j]+"&key="+document.cookie.substring(6));
+						        console.log("https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id="+streamerData[i][4][0]+"&key="+document.cookie.substring(6));
 						        streamerData[i][7]=d["items"][0]["liveStreamingDetails"]["concurrentViewers"];
 						    }
 						};
