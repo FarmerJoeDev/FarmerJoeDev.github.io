@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>CxNetwork</title>
+		<title>CxNetwork v1.0</title>
 	</head>
 	<style type="text/css">
 		html{
@@ -151,7 +151,18 @@
 				        iframes.removeChild(document.getElementById("fr_"+i));
 				    }
 				}
-			}  
+			} 
+			function flushChat(){
+				for (var i = 0; i < streamerData.length; i++){
+					for (var j = 0; j < streamerData[i][4].length; j++){
+						if (streamerData[i][6][j]) {
+							var chat = document.getElementById("fr_c_"+i);
+							chat.src = "#";
+							chat.src = "https://gaming.youtube.com/live_chat?v="+streamerData[i][4][j]+"&embed_domain=farmerjoedev.github.io";
+						}
+					}
+				}	
+			}
 			function toggleChat(i){
 				for (var j = 0; j < streamerData[i][4].length; j++){
 					document.getElementById("bu_c_"+i).style.backgroundColor="#6e6d6d";
@@ -200,6 +211,7 @@
 				updateLive();
 				window.setInterval(function(){
 					updateLive();
+					flushChat();
 				}, 60000); //update every min
 			})();
 			function isLive(i){
