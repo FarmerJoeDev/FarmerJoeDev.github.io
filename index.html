@@ -9,17 +9,38 @@
 			color: white
 		}
 		button{
-			font-size: 2vw;
+			font-size: 1.75vw;
 			background-color: #333;
-		    border-style: none;
-		    color: white;
+		    color: #f0f0f0;
 		    padding: 5px;
-		    margin-left:5px;
-		    margin-top: 2px;
+		    margin-left:0px;
+		    margin-bottom:3px;
+		    outline: none;
+		    cursor: pointer;
+		    border-style: solid;
+		    border-left: 1px;
+		    border-color: black;
+
+		}
+		button:hover{
+			background-color: #6e6d6d !important;
+		}
+		hr{
+			border-color:#333;
+			border-width: 1.5px;
+			border-style: solid;
+		}
+		.con{
+			border-left-color:#333;
+			border-right: 0px;
+			border-top: 0px;
+			border-bottom: 0px;
+			border-style: solid;
+			padding-left: 4px;
 		}
 		.addBu{
-			margin-top: 5px;
 			margin-bottom: 5px;
+			font-size: 1.75vw;
 		}
 		.live{
 			color: red !important;
@@ -27,12 +48,10 @@
 	</style>
 	<body>
 		<button class="addBu" id="add_stream_button" onClick="toggleList('add_streamer_list');">Add/Remove Stream</button>
-		<div id="add_streamer_list" style="display: none;"></div>
-		<br>
-
-		<button class="addBu" id="add_stream_button_chat" onClick="toggleList('add_streamer_list_chat');">Add/Remove Chat</button>
-		<div id="add_streamer_list_chat" style="display: none;"></div>
-		<br>
+		<div id="add_streamer_list" class="con" style="display: none;"></div>
+ 		<br>
+		<!--<button class="addBu" id="add_stream_button_chat" onClick="toggleList('add_streamer_list_chat');">Add/Remove Chat</button>
+		<div id="add_streamer_list_chat" class="con" style="display: none;"></div>-->
 
 		<div id="stream_iframes"></div>
 
@@ -77,10 +96,10 @@
 					isLive(i);
 				    if(streamerData[i][5]){
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1]+' <span class="live">[LIVE]</span>';
-				    	document.getElementById("bu_c_"+i).innerHTML=streamerData[i][1]+' <span class="live">[CHAT LIVE]</span>';
+				    	document.getElementById("bu_c_"+i).innerHTML=' <span class="live">[CHAT]</span>';
 				    }else{
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1];
-				    	document.getElementById("bu_c_"+i).innerHTML=streamerData[i][1];
+				    	document.getElementById("bu_c_"+i).innerHTML="[CHAT]";
 				    }
 				  }
 			}
@@ -88,8 +107,10 @@
 					updateLive();
 				    var x = document.getElementById(i);
 				    if (x.style.display === "none") {
-				        x.style.display = "block";
+				    	document.getElementById("add_stream_button").style.backgroundColor="#6e6d6d";
+				        x.style.display = "grid";
 				    } else {
+				    	document.getElementById("add_stream_button").style.backgroundColor="#333";
 				        x.style.display = "none";
 				    }
 			}
@@ -97,6 +118,7 @@
 				for (var j = 0; j < streamerData[i][4].length; j++){
 				    var iframes = document.getElementById("stream_iframes");
 				    if (!streamerData[i][3][j]) {
+				    	document.getElementById("bu_"+i).style.backgroundColor="#6e6d6d";
 				    	streamerData[i][3][j]=true;
 				    	var fr = document.createElement('iframe');
 				    	fr.id="fr_"+i;
@@ -109,6 +131,11 @@
 				    	fr.setAttribute("allowfullscreen","true");
 				    	iframes.appendChild(fr);
 				    } else {
+				    	if(i%2){
+				    		document.getElementById("bu_"+i).style.backgroundColor="#392d72";
+				    	}else{
+				    		document.getElementById("bu_"+i).style.backgroundColor="#333";
+				    	}
 				        streamerData[i][3][j]=false;
 				        iframes.removeChild(document.getElementById("fr_"+i));
 				    }
@@ -116,46 +143,38 @@
 			}  
 			function toggleChat(i){
 				for (var j = 0; j < streamerData[i][4].length; j++){
+					document.getElementById("bu_c_"+i).style.backgroundColor="#6e6d6d";
 				    var iframes = document.getElementById("stream_iframes");
 				    if (!streamerData[i][6][j]) {
-				    	//var frt = document.createElement('span');
-				    	//frt.innerHTML = streamerData[i][1];
-				    	//frt.id="fr_c_"+i;
-				    	//iframes.appendChild(frt);
 				    	streamerData[i][6][j]=true;
 				    	var fr = document.createElement('iframe');
 				    	fr.id="fr_c_"+i;
 				    	fr.setAttribute("src","https://gaming.youtube.com/live_chat?v="+streamerData[i][4][j]+"&embed_domain=farmerjoedev.github.io");
-				    	fr.style.width="250px";
+				    	fr.style.width="265px";
 				    	fr.style.height="500px";
 				    	fr.setAttribute("frameborder","0");
 				    	fr.setAttribute("allowfullscreen","true");
 				    	iframes.appendChild(fr);
 				    } else {
+				    	if(i%2){
+				    		document.getElementById("bu_c_"+i).style.backgroundColor="#392d72";
+				    	}else{
+				    		document.getElementById("bu_c_"+i).style.backgroundColor="#333";
+				    	}
 				        streamerData[i][6][j]=false;
 				        iframes.removeChild(document.getElementById("fr_c_"+i));
 				    }
 				}
 			}  
 			(function(){
-				apiKey = prompt("ENTER YOUTUBE DATA API KEY HERE: GET KEY >> https://console.cloud.google.com/apis/library/youtube.googleapis.com/?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508", "");
+				apiKey = prompt("Enter YouTubeDataAPIKey OR get your own >> https://console.cloud.google.com/apis/library/youtube.googleapis.com/?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508", "");
 				var sl = document.getElementById('add_streamer_list');
-				var slc = document.getElementById('add_streamer_list_chat');
 				for (var i = 0; i < streamerData.length; i++){
-					var bu = document.createElement('BUTTON');
-					bu.setAttribute("onclick","toggleStream("+i+");");
-					bu.setAttribute("id","bu_"+i);
-					bu.innerHTML = streamerData[i][1];
-					sl.appendChild(bu);
-					sl.appendChild(document.createElement('BR'));
-
-					var buc = document.createElement('BUTTON');
-					buc.setAttribute("onclick","toggleChat("+i+");");
-					buc.setAttribute("id","bu_c_"+i);
-					buc.innerHTML = streamerData[i][1];
-					slc.appendChild(buc);
-					slc.appendChild(document.createElement('BR'));
-	
+					if(i%2){
+						sl.innerHTML+="<div style='display: inline;'><button style='background-color:#392d72;' onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button  style='background-color:#392d72;' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>[CHAT]</button></div>";
+					}else{
+						sl.innerHTML+="<div style='display: inline;'><button onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button onClick='toggleChat("+i+");' id='bu_c_"+i+"'>[CHAT]</button></div>";
+					}
 				}
 				updateLive();
 				window.setInterval(function(){
