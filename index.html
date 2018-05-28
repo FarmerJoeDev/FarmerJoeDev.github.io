@@ -107,7 +107,9 @@
 			function updateLive(){
 				for (var i = 0; i < streamerData.length; i++){
 					isLive(i);
-					updateViewC(i);
+					if(streamerData[i][5]){
+						updateViewC(i);
+					}
 				    if(streamerData[i][5]){
 				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
 				    }else{
