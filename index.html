@@ -6,7 +6,10 @@
 	<style type="text/css">
 		html{
 			background-color: black;
-			color: white
+			color: white;
+		}
+		iframe{
+			margin:0px;
 		}
 		button{
 			font-size: 1.75vw;
@@ -50,11 +53,7 @@
 		<button class="addBu" id="add_stream_button" onClick="toggleList('add_streamer_list');">Add/Remove Stream</button>
 		<div id="add_streamer_list" class="con" style="display: none;"></div>
  		<br>
-		<!--<button class="addBu" id="add_stream_button_chat" onClick="toggleList('add_streamer_list_chat');">Add/Remove Chat</button>
-		<div id="add_streamer_list_chat" class="con" style="display: none;"></div>-->
-
 		<div id="stream_iframes"></div>
-
 		<script type="text/javascript">
 			//yt data apikey
 			var apiKey = "";
@@ -191,7 +190,6 @@
 				        		streamerData[i][4][j]=d["items"][j]["id"]["videoId"];	
 				        	}
 				        	streamerData[i][5]=true;
-
 				        }
 				    }
 				};
