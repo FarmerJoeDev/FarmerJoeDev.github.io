@@ -10,19 +10,32 @@
 		}
 		button{
 			font-size: 2vw;
+			background-color: #333;
+		    border-style: none;
+		    color: white;
+		    padding: 5px;
+		    margin-left:5px;
+		    margin-top: 2px;
+		}
+		.addBu{
+			margin-top: 5px;
+			margin-bottom: 5px;
 		}
 		.live{
 			color: red !important;
 		}
 	</style>
 	<body>
-		<button id="add_stream_button" onClick="toggleList('add_streamer_list');">Add/Remove Stream</button>
+		<button class="addBu" id="add_stream_button" onClick="toggleList('add_streamer_list');">Add/Remove Stream</button>
 		<div id="add_streamer_list" style="display: none;"></div>
 		<br>
-		<button id="add_stream_button_chat" onClick="toggleList('add_streamer_list_chat');">Add/Remove Chat</button>
+
+		<button class="addBu" id="add_stream_button_chat" onClick="toggleList('add_streamer_list_chat');">Add/Remove Chat</button>
 		<div id="add_streamer_list_chat" style="display: none;"></div>
 		<br>
+
 		<div id="stream_iframes"></div>
+
 		<script type="text/javascript">
 			//yt data apikey
 			var apiKey = "";
@@ -67,7 +80,7 @@
 				    	document.getElementById("bu_c_"+i).innerHTML=streamerData[i][1]+' <span class="live">[CHAT LIVE]</span>';
 				    }else{
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1];
-				    	document.getElementById("bu_c_"+i).innerHTML=streamerData[i][1]+" [CHAT]";
+				    	document.getElementById("bu_c_"+i).innerHTML=streamerData[i][1];
 				    }
 				  }
 			}
@@ -139,7 +152,7 @@
 					var buc = document.createElement('BUTTON');
 					buc.setAttribute("onclick","toggleChat("+i+");");
 					buc.setAttribute("id","bu_c_"+i);
-					buc.innerHTML = streamerData[i][1] + " [CHAT]";
+					buc.innerHTML = streamerData[i][1];
 					slc.appendChild(buc);
 					slc.appendChild(document.createElement('BR'));
 	
@@ -166,7 +179,6 @@
 				    }
 				};
 				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+apiKey, true);
-			
 				xmlhttp.send();
 			}
 		</script>
