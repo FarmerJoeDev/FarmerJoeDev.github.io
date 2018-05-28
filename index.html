@@ -211,8 +211,10 @@
 				updateLive();
 				window.setInterval(function(){
 					updateLive();
+				}, 60000); //every min
+				window.setInterval(function(){
 					flushChat();
-				}, 60000); //update every min
+				}, 300000); //update every 5min
 			})();
 			function isLive(i){
 				var xmlhttp = new XMLHttpRequest();
