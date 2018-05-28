@@ -109,9 +109,7 @@
 					isLive(i);
 				    if(streamerData[i][5]){
 				    	updateViewC(i);
-				    	while(streamerData[i][7]<0){
-				    		document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
-				    	}
+				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
 				    }else{
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1];
 				    }
