@@ -69,49 +69,49 @@
 			streamerData=
 			[
 			//Ice
-			["UCv9Edl_WbtbPeURPtFDo-uA","Ice Poseidon",["ice","iceposeidon","i","goblin"],[false],["0"],false,[false],0], 
+			["UCv9Edl_WbtbPeURPtFDo-uA","Ice Poseidon",["ice","iceposeidon","i","goblin"],[false],["0"],false,[false],-1], 
 			//Sam
-			["UCKGiTasUqLcZUuUjQiyKotw","Sam Pepper",["sampepper","pepper","sam","s"],[false],["0"],false,[false],0], 
+			["UCKGiTasUqLcZUuUjQiyKotw","Sam Pepper",["sampepper","pepper","sam","s"],[false],["0"],false,[false],-1], 
 			//MexicanAndy
-			["UC8EmlqXIlJJpF7dTOmSywBg","Mexican Andy",["Mexican Andy"],[false],["0"],false,[false],0],
+			["UC8EmlqXIlJJpF7dTOmSywBg","Mexican Andy",["Mexican Andy"],[false],["0"],false,[false],-1],
 			//EBZ
-			["UCkR8ndH0NypMYtVYARnQ-_g","EBT",["EBT"],[false],["0"],false,[false],0],
+			["UCkR8ndH0NypMYtVYARnQ-_g","EBT",["EBT"],[false],["0"],false,[false],-1],
 			//Bjorn
-			["UCD8GawxPXpJnql466KekVXA","Bjorn",["Bjorn"],[false],["0"],false,[false],0],
+			["UCD8GawxPXpJnql466KekVXA","Bjorn",["Bjorn"],[false],["0"],false,[false],-1],
 			//AsianAndy
-			["UCtd1LPrQtN7Fb-5_xsfJs1Q","Asian Andy",["Asian Andy"],[false],["0"],false,[false],0], 
+			["UCtd1LPrQtN7Fb-5_xsfJs1Q","Asian Andy",["Asian Andy"],[false],["0"],false,[false],-1], 
 			//Dankquan
-			["UCsu6PcWVHcpktJ-0jEouKdQ","Dankquan",["Dankquan"],[false],["0"],false,[false],0],
+			["UCsu6PcWVHcpktJ-0jEouKdQ","Dankquan",["Dankquan"],[false],["0"],false,[false],-1],
 			//HamptonBrandon 
-			["UCUHzH3aSxoa9wRudh4V1H-A","Hampton Brandon",["Hampton Brandon"],[false],["0"],false,[false],0],
+			["UCUHzH3aSxoa9wRudh4V1H-A","Hampton Brandon",["Hampton Brandon"],[false],["0"],false,[false],-1],
 			//Cassandra
 			["UCOpjJ_pVN7f4CiayJTvPLQA","Cassandra",["Cassandra"],[false],["0"],false,[false],0],
 			//Pizza Time
 			["UCJNILr75xb9zKpUI0RV7pmQ","Pizza Time",["Pizza Time"],[false],["0"],false,[false],0],
 			//ScuffedJimCarrey
-			["UCb_uSoNftDNibpCQvSBDTtg","Scuffed Jim Carrey",["Scuffed Jim Carrey"],[false],["0"],false,[false],0],
+			["UCb_uSoNftDNibpCQvSBDTtg","Scuffed Jim Carrey",["Scuffed Jim Carrey"],[false],["0"],false,[false],-1],
 			//marie
 			["UC16fss-5fnGp2Drqp1iT9pA","Marie",["Marie"],[false],["0"],false,[false],0],
 			//alpha andy
-			["UCaLn62derlYGrYoN79CqEBw","Alpha Andy",["Alpha Andy"],[false],["0"],false,[false],0],
+			["UCaLn62derlYGrYoN79CqEBw","Alpha Andy",["Alpha Andy"],[false],["0"],false,[false],-1],
 			//tracksuit andy
-			["UCB0H_1M78_jwTyfaJuP241g","Tracksuit Andy",["Tracksuit Andy"],[false],["0"],false,[false],0],
+			["UCB0H_1M78_jwTyfaJuP241g","Tracksuit Andy",["Tracksuit Andy"],[false],["0"],false,[false],-1],
 			//sweet erin
-			["UCVrZceJ6Ux-Us3sKCw_6sIg","Sweet Erin",["Sweet Erin"],[false],["0"],false,[false],0],
+			["UCVrZceJ6Ux-Us3sKCw_6sIg","Sweet Erin",["Sweet Erin"],[false],["0"],false,[false],-1],
 			//manbun andy
-			["UC7Qmj6CKjFBoJYT4U4alzsg","Manbun Andy",["Manbun Andy"],[false],["0"],false,[false],0],
+			["UC7Qmj6CKjFBoJYT4U4alzsg","Manbun Andy",["Manbun Andy"],[false],["0"],false,[false],-1],
 			//jelz
-			["UCo7MJ0p0xDT9OYSYQZdvtEQ","Jelz",["jelz"],[false],["0"],false,[false],0]
+			["UCo7MJ0p0xDT9OYSYQZdvtEQ","Jelz",["jelz"],[false],["0"],false,[false],-1]
 			];
 
 			function updateLive(){
 				for (var i = 0; i < streamerData.length; i++){
 					isLive(i);
-					if(streamerData[i][5]){
-						updateViewC(i);
-					}
 				    if(streamerData[i][5]){
-				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
+				    	updateViewC(i);
+				    	while(streamerData[i][7]<0){
+				    		document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
+				    	}
 				    }else{
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1];
 				    }
