@@ -51,12 +51,13 @@
 	</style>
 	<body>
 		<button class="addBu" id="add_stream_button" onClick="toggleList('add_streamer_list');">Add/Remove Stream</button>
+		<input id="key" onchange="updateKey();" type="password" placeholder="YouTube API Key" value=""/><span onClick="howAPI();" style="cursor:help;"> ?</span>
 		<div id="add_streamer_list" class="con" style="display: none;"></div>
  		<br>
 		<div id="stream_iframes"></div>
 		<script type="text/javascript">
 			//yt data apikey
-			var apiKey = "";
+			//var apiKey = "";
 
 			//[streamerIndex][String id,String displayName,altNames[]],stream playing[],video id[],islive,chat on[]
 			streamerData=
@@ -68,7 +69,7 @@
 			//MexicanAndy
 			["UC8EmlqXIlJJpF7dTOmSywBg","Mexican Andy",["Mexican Andy"],[false],["0"],false,[false]],
 			//EBZ
-			["UCkR8ndH0NypMYtVYARnQ-_g","EBT",["EBZ"],[false],["0"],false,[false]],
+			["UCkR8ndH0NypMYtVYARnQ-_g","EBT",["EBT"],[false],["0"],false,[false]],
 			//Bjorn
 			["UCD8GawxPXpJnql466KekVXA","Bjorn",["Bjorn"],[false],["0"],false,[false]],
 			//AsianAndy
@@ -162,9 +163,21 @@
 				        iframes.removeChild(document.getElementById("fr_c_"+i));
 				    }
 				}
-			}  
+			} 
+			function howAPI(){
+				alert("get api key here: https://console.cloud.google.com/apis/library/youtube.googleapis.com/?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508");
+			}
+			function updateKey(){
+				if(document.getElementById('key').value!=""){
+					var d = new Date();
+				    d.setTime(d.getTime() + (365*24*60*60*1000));
+				    var expires = "expires=" + d.toGMTString();
+				    document.cookie = "cxKey=" + document.getElementById('key').value + ";" + expires + ";path=/";
+					alert(document.cookie.cxKey);
+				}
+			}
 			(function(){
-				apiKey = prompt("Enter YouTubeDataAPIKey OR get your own >> https://console.cloud.google.com/apis/library/youtube.googleapis.com/?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508", "");
+				//var tempKey = prompt("Enter YouTubeDataAPIKey OR get your own >> https://console.cloud.google.com/apis/library/youtube.googleapis.com/?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508", "");
 				var sl = document.getElementById('add_streamer_list');
 				for (var i = 0; i < streamerData.length; i++){
 					if(i%2){
@@ -193,7 +206,7 @@
 				        }
 				    }
 				};
-				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+apiKey, true);
+				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+document.cookie.cxKey, true);
 				xmlhttp.send();
 			}
 		</script>
