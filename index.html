@@ -69,46 +69,46 @@
 			streamerData=
 			[
 			//Ice
-			["UCv9Edl_WbtbPeURPtFDo-uA","Ice Poseidon",["ice","iceposeidon","i","goblin"],[false],["0"],false,[false]], 
+			["UCv9Edl_WbtbPeURPtFDo-uA","Ice Poseidon",["ice","iceposeidon","i","goblin"],[false],["0"],false,[false],0], 
 			//Sam
-			["UCKGiTasUqLcZUuUjQiyKotw","Sam Pepper",["sampepper","pepper","sam","s"],[false],["0"],false,[false]], 
+			["UCKGiTasUqLcZUuUjQiyKotw","Sam Pepper",["sampepper","pepper","sam","s"],[false],["0"],false,[false],0], 
 			//MexicanAndy
-			["UC8EmlqXIlJJpF7dTOmSywBg","Mexican Andy",["Mexican Andy"],[false],["0"],false,[false]],
+			["UC8EmlqXIlJJpF7dTOmSywBg","Mexican Andy",["Mexican Andy"],[false],["0"],false,[false],0],
 			//EBZ
-			["UCkR8ndH0NypMYtVYARnQ-_g","EBT",["EBT"],[false],["0"],false,[false]],
+			["UCkR8ndH0NypMYtVYARnQ-_g","EBT",["EBT"],[false],["0"],false,[false],0],
 			//Bjorn
-			["UCD8GawxPXpJnql466KekVXA","Bjorn",["Bjorn"],[false],["0"],false,[false]],
+			["UCD8GawxPXpJnql466KekVXA","Bjorn",["Bjorn"],[false],["0"],false,[false],0],
 			//AsianAndy
-			["UCtd1LPrQtN7Fb-5_xsfJs1Q","Asian Andy",["Asian Andy"],[false],["0"],false,[false]], 
+			["UCtd1LPrQtN7Fb-5_xsfJs1Q","Asian Andy",["Asian Andy"],[false],["0"],false,[false],0], 
 			//Dankquan
-			["UCsu6PcWVHcpktJ-0jEouKdQ","Dankquan",["Dankquan"],[false],["0"],false,[false]],
+			["UCsu6PcWVHcpktJ-0jEouKdQ","Dankquan",["Dankquan"],[false],["0"],false,[false],0],
 			//HamptonBrandon 
-			["UCUHzH3aSxoa9wRudh4V1H-A","Hampton Brandon",["Hampton Brandon"],[false],["0"],false,[false]],
+			["UCUHzH3aSxoa9wRudh4V1H-A","Hampton Brandon",["Hampton Brandon"],[false],["0"],false,[false],0],
 			//Cassandra
-			["UCOpjJ_pVN7f4CiayJTvPLQA","Cassandra",["Cassandra"],[false],["0"],false,[false]],
+			["UCOpjJ_pVN7f4CiayJTvPLQA","Cassandra",["Cassandra"],[false],["0"],false,[false],0],
 			//Pizza Time
-			["UCJNILr75xb9zKpUI0RV7pmQ","Pizza Time",["Pizza Time"],[false],["0"],false,[false]],
+			["UCJNILr75xb9zKpUI0RV7pmQ","Pizza Time",["Pizza Time"],[false],["0"],false,[false],0],
 			//ScuffedJimCarrey
-			["UCb_uSoNftDNibpCQvSBDTtg","Scuffed Jim Carrey",["Scuffed Jim Carrey"],[false],["0"],false,[false]],
+			["UCb_uSoNftDNibpCQvSBDTtg","Scuffed Jim Carrey",["Scuffed Jim Carrey"],[false],["0"],false,[false],0],
 			//marie
-			["UC16fss-5fnGp2Drqp1iT9pA","Marie",["Marie"],[false],["0"],false,[false]],
+			["UC16fss-5fnGp2Drqp1iT9pA","Marie",["Marie"],[false],["0"],false,[false],0],
 			//alpha andy
-			["UCaLn62derlYGrYoN79CqEBw","Alpha Andy",["Alpha Andy"],[false],["0"],false,[false]],
+			["UCaLn62derlYGrYoN79CqEBw","Alpha Andy",["Alpha Andy"],[false],["0"],false,[false],0],
 			//tracksuit andy
-			["UCB0H_1M78_jwTyfaJuP241g","Tracksuit Andy",["Tracksuit Andy"],[false],["0"],false,[false]],
+			["UCB0H_1M78_jwTyfaJuP241g","Tracksuit Andy",["Tracksuit Andy"],[false],["0"],false,[false],0],
 			//sweet erin
-			["UCVrZceJ6Ux-Us3sKCw_6sIg","Sweet Erin",["Sweet Erin"],[false],["0"],false,[false]],
+			["UCVrZceJ6Ux-Us3sKCw_6sIg","Sweet Erin",["Sweet Erin"],[false],["0"],false,[false],0],
 			//manbun andy
-			["UC7Qmj6CKjFBoJYT4U4alzsg","Manbun Andy",["Manbun Andy"],[false],["0"],false,[false]],
+			["UC7Qmj6CKjFBoJYT4U4alzsg","Manbun Andy",["Manbun Andy"],[false],["0"],false,[false],0],
 			//jelz
-			["UCo7MJ0p0xDT9OYSYQZdvtEQ","Jelz",["jelz"],[false],["0"],false,[false]]
+			["UCo7MJ0p0xDT9OYSYQZdvtEQ","Jelz",["jelz"],[false],["0"],false,[false],0]
 			];
 
 			function updateLive(){
 				for (var i = 0; i < streamerData.length; i++){
 					isLive(i);
 				    if(streamerData[i][5]){
-				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+'</span>';
+				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
 				    }else{
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1];
 				    }
@@ -219,6 +219,18 @@
 				};
 				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+document.cookie.substring(6), true);
 				xmlhttp.send();
+
+				for (var j = 0; j < streamerData[i][4].length; j++){
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					        var d = JSON.parse(this.responseText);
+					        streamerData[i][7]=d["items"][0]["liveStreamingDetails"]["concurrentViewers"];
+					    }
+					};
+					xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id="+streamerData[i][4][j]+"&key="+document.cookie.substring(6), true);
+					xmlhttp.send();
+				}
 			}
 		</script>
 	</body>
