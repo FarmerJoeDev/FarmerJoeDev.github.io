@@ -206,7 +206,7 @@
 				        }
 				    }
 				};
-				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+document.cookie.cxKey, true);
+				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+document.cookie.substring(6), true);
 				xmlhttp.send();
 			}
 		</script>
