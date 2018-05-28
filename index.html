@@ -69,46 +69,45 @@
 			streamerData=
 			[
 			//Ice
-			["UCv9Edl_WbtbPeURPtFDo-uA","Ice Poseidon",["ice","iceposeidon","i","goblin"],[false],["0"],false,[false],-1], 
+			["UCv9Edl_WbtbPeURPtFDo-uA","Ice Poseidon",["ice","iceposeidon","i","goblin"],[false],["0"],false,[false],"-"], 
 			//Sam
-			["UCKGiTasUqLcZUuUjQiyKotw","Sam Pepper",["sampepper","pepper","sam","s"],[false],["0"],false,[false],-1], 
+			["UCKGiTasUqLcZUuUjQiyKotw","Sam Pepper",["sampepper","pepper","sam","s"],[false],["0"],false,[false],"-"], 
 			//MexicanAndy
-			["UC8EmlqXIlJJpF7dTOmSywBg","Mexican Andy",["Mexican Andy"],[false],["0"],false,[false],-1],
+			["UC8EmlqXIlJJpF7dTOmSywBg","Mexican Andy",["Mexican Andy"],[false],["0"],false,[false],"-"],
 			//EBZ
-			["UCkR8ndH0NypMYtVYARnQ-_g","EBT",["EBT"],[false],["0"],false,[false],-1],
+			["UCkR8ndH0NypMYtVYARnQ-_g","EBT",["EBT"],[false],["0"],false,[false],"-"],
 			//Bjorn
-			["UCD8GawxPXpJnql466KekVXA","Bjorn",["Bjorn"],[false],["0"],false,[false],-1],
+			["UCD8GawxPXpJnql466KekVXA","Bjorn",["Bjorn"],[false],["0"],false,[false],"-"],
 			//AsianAndy
-			["UCtd1LPrQtN7Fb-5_xsfJs1Q","Asian Andy",["Asian Andy"],[false],["0"],false,[false],-1], 
+			["UCtd1LPrQtN7Fb-5_xsfJs1Q","Asian Andy",["Asian Andy"],[false],["0"],false,[false],"-"], 
 			//Dankquan
-			["UCsu6PcWVHcpktJ-0jEouKdQ","Dankquan",["Dankquan"],[false],["0"],false,[false],-1],
+			["UCsu6PcWVHcpktJ-0jEouKdQ","Dankquan",["Dankquan"],[false],["0"],false,[false],"-"],
 			//HamptonBrandon 
-			["UCUHzH3aSxoa9wRudh4V1H-A","Hampton Brandon",["Hampton Brandon"],[false],["0"],false,[false],-1],
+			["UCUHzH3aSxoa9wRudh4V1H-A","Hampton Brandon",["Hampton Brandon"],[false],["0"],false,[false],"-"],
 			//Cassandra
-			["UCOpjJ_pVN7f4CiayJTvPLQA","Cassandra",["Cassandra"],[false],["0"],false,[false],0],
+			["UCOpjJ_pVN7f4CiayJTvPLQA","Cassandra",["Cassandra"],[false],["0"],false,[false],"-"],
 			//Pizza Time
-			["UCJNILr75xb9zKpUI0RV7pmQ","Pizza Time",["Pizza Time"],[false],["0"],false,[false],0],
+			["UCJNILr75xb9zKpUI0RV7pmQ","Pizza Time",["Pizza Time"],[false],["0"],false,[false],"-"],
 			//ScuffedJimCarrey
-			["UCb_uSoNftDNibpCQvSBDTtg","Scuffed Jim Carrey",["Scuffed Jim Carrey"],[false],["0"],false,[false],-1],
+			["UCb_uSoNftDNibpCQvSBDTtg","Scuffed Jim Carrey",["Scuffed Jim Carrey"],[false],["0"],false,[false],"-"],
 			//marie
-			["UC16fss-5fnGp2Drqp1iT9pA","Marie",["Marie"],[false],["0"],false,[false],0],
+			["UC16fss-5fnGp2Drqp1iT9pA","Marie",["Marie"],[false],["0"],false,[false],"-"],
 			//alpha andy
-			["UCaLn62derlYGrYoN79CqEBw","Alpha Andy",["Alpha Andy"],[false],["0"],false,[false],-1],
+			["UCaLn62derlYGrYoN79CqEBw","Alpha Andy",["Alpha Andy"],[false],["0"],false,[false],"-"],
 			//tracksuit andy
-			["UCB0H_1M78_jwTyfaJuP241g","Tracksuit Andy",["Tracksuit Andy"],[false],["0"],false,[false],-1],
+			["UCB0H_1M78_jwTyfaJuP241g","Tracksuit Andy",["Tracksuit Andy"],[false],["0"],false,[false],"-"],
 			//sweet erin
-			["UCVrZceJ6Ux-Us3sKCw_6sIg","Sweet Erin",["Sweet Erin"],[false],["0"],false,[false],-1],
+			["UCVrZceJ6Ux-Us3sKCw_6sIg","Sweet Erin",["Sweet Erin"],[false],["0"],false,[false],"-"],
 			//manbun andy
-			["UC7Qmj6CKjFBoJYT4U4alzsg","Manbun Andy",["Manbun Andy"],[false],["0"],false,[false],-1],
+			["UC7Qmj6CKjFBoJYT4U4alzsg","Manbun Andy",["Manbun Andy"],[false],["0"],false,[false],"-"],
 			//jelz
-			["UCo7MJ0p0xDT9OYSYQZdvtEQ","Jelz",["jelz"],[false],["0"],false,[false],-1]
+			["UCo7MJ0p0xDT9OYSYQZdvtEQ","Jelz",["jelz"],[false],["0"],false,[false],"-"]
 			];
 
 			function updateLive(){
 				for (var i = 0; i < streamerData.length; i++){
 					isLive(i);
 				    if(streamerData[i][5]){
-				    	updateViewC(i);
 				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
 				    }else{
 				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1];
@@ -215,6 +214,7 @@
 				        		streamerData[i][4][j]=d["items"][j]["id"]["videoId"];	
 				        	}
 				        	streamerData[i][5]=true;
+				        	updateViewC(i);
 				        }
 				    }
 				};
