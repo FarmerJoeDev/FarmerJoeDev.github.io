@@ -220,17 +220,18 @@
 				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+document.cookie.substring(6), true);
 				xmlhttp.send();
 
-				for (var j = 0; j < streamerData[i][4].length; j++){
-					var xmlhttp = new XMLHttpRequest();
-					xmlhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					        var d = JSON.parse(this.responseText);
-					        streamerData[i][7]=d["items"][0]["liveStreamingDetails"]["concurrentViewers"];
-					    }
-					};
+					for (var j = 0; j < streamerData[i][4].length; j++){
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
+						        var d = JSON.parse(this.responseText);
+						        streamerData[i][7]=d["items"][0]["liveStreamingDetails"]["concurrentViewers"];
+						    }
+						};
+					}
 					xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id="+streamerData[i][4][j]+"&key="+document.cookie.substring(6), true);
 					xmlhttp.send();
-				}
+				
 			}
 		</script>
 	</body>
