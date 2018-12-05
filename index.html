@@ -172,7 +172,8 @@
 				    if(streamerData[i][5]){
 				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
 				    }else{
-				    	document.getElementById("bu_"+i).innerHTML=streamerData[i][1];
+				    	document.getElementById("bu_"+i).style.display='none';
+				    	document.getElementById("bu_c_"+i).style.display='none';
 				    }
 				  }
 			}
@@ -265,9 +266,9 @@
 				var sl = document.getElementById('add_streamer_list');
 				for (var i = 0; i < streamerData.length; i++){
 					if(i%2){
-						sl.innerHTML+="<div style='display: inline;'><button style='background-color:#333;' onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button  style='background-color:#333;' class='chat_butt' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>📝</button></div><br>";
+						sl.innerHTML+="<button style='background-color:#333;' onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button  style='background-color:#333;' class='chat_butt' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>📝</button>";
 					}else{
-						sl.innerHTML+="<div style='display: inline;'><button onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button class='chat_butt' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>📝</button></div><br>";
+						sl.innerHTML+="<button onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button class='chat_butt' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>📝</button>";
 					}
 				}
 				updateLive();
