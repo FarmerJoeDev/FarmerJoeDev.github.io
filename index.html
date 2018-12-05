@@ -173,13 +173,13 @@
 					isLive(i);
 				    if(streamerData[i][5]){
 				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
-				    	document.getElementById("bu_"+i).style.display='block';
-				    	document.getElementById("bu_c_"+i).style.display='block';
+				    	document.getElementById("bu_"+i).style.display='inline';
+				    	document.getElementById("bu_c_"+i).style.display='inline';
 				    	document.getElementById("div1"+i).style.display='inline';
 				    }else{
 				    	document.getElementById("bu_"+i).style.display='none';
 				    	document.getElementById("bu_c_"+i).style.display='none';
-				    	document.getElementById("div1"+i).style.display='inline';
+				    	document.getElementById("div1"+i).style.display='none';
 				    }
 				  }
 			}
