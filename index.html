@@ -42,6 +42,7 @@
 			border-bottom: 0px;
 			border-style: solid;
 			padding-left: 4px;
+			position: fixed;
 		}
 		.addBu{
 			margin-bottom: 5px;
@@ -173,14 +174,16 @@
 				    	document.getElementById("bu_"+i).innerHTML=' <span class="live">'+streamerData[i][1]+" "+streamerData[i][7]+'</span>';
 				    	document.getElementById("bu_"+i).style.display='block';
 				    	document.getElementById("bu_c_"+i).style.display='block';
+				    	document.getElementById("div1"+i).style.display='block';
 				    }else{
 				    	document.getElementById("bu_"+i).style.display='none';
 				    	document.getElementById("bu_c_"+i).style.display='none';
+				    	document.getElementById("div1"+i).style.display='none';
 				    }
 				  }
 			}
 			function toggleList(i){
-					updateLive();
+				 	updateLive();
 				    var x = document.getElementById(i);
 				    if (x.style.display === "none") {
 				    	document.getElementById("add_stream_button").style.backgroundColor="#6e6d6d";
@@ -268,9 +271,9 @@
 				var sl = document.getElementById('add_streamer_list');
 				for (var i = 0; i < streamerData.length; i++){
 					if(i%2){
-						sl.innerHTML+="<button style='background-color:#333;' onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button  style='background-color:#333;' class='chat_butt' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>📝</button>";
+						sl.innerHTML+="<div id='div1"+i+"' style='display: inline;'><button style='background-color:#333;' onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button  style='background-color:#333;' class='chat_butt' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>📝</button></div><br>";
 					}else{
-						sl.innerHTML+="<button onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button class='chat_butt' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>📝</button>";
+						sl.innerHTML+="<div id='div1"+i+"' style='display: inline;'><button onClick='toggleStream("+i+");' id='bu_"+i+"' >"+streamerData[i][1]+"</button><button class='chat_butt' onClick='toggleChat("+i+");' id='bu_c_"+i+"'>📝</button></div><br>";
 					}
 				}
 				updateLive();
