@@ -258,7 +258,7 @@
   }
 //-----------------------------------------------------------------------
 
-
+/*
 // insert chat bot ------------------------------------------------------
     function sendMsg(snippet, callback){
         var xmlhttp = new XMLHttpRequest();
@@ -282,7 +282,7 @@
       });
     }, 10000);
   }
-
+*/
 //-----------------------------------------------------------------------
 
 
@@ -344,7 +344,7 @@ function checkCookie() {
 
   (function(){
      checkCookie();
-     bot("*Testing the Chat bot*");
+     //bot("*Testing the Chat bot*");
    runLoop();
    
    
@@ -379,7 +379,7 @@ function checkCookie() {
               function(err) { console.error("Error loading GAPI client for API", err); });
   }
   // Make sure the client is loaded and sign-in is complete before calling this method.
-  function execute() {
+  function sendMsg1() {
     return gapi.client.youtube.liveChatMessages.insert({
       "part": "snippet",
       "resource": {
@@ -416,7 +416,7 @@ function checkCookie() {
 
     </script>
     <button onclick="authenticate().then(loadClient)">authorize and load</button>
-<button onclick="execute()">execute</button>
+<button onclick="sendMsg1()">execute</button>
 
   </body>
 </html>
