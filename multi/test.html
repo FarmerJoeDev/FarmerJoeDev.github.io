@@ -367,12 +367,14 @@ function checkCookie() {
 
 
   function authenticate() {
+     console.log("2");
     return gapi.auth2.getAuthInstance()
         .signIn({scope: "https://www.googleapis.com/auth/youtube"})
         .then(function() { console.log("Sign-in successful"); },
               function(err) { console.error("Error signing in", err); });
   }
   function loadClient() {
+     console.log("3");
     return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/youtube/v3/rest")
         .then(function() { console.log("GAPI client loaded for API"); },
               function(err) { console.error("Error loading GAPI client for API", err); });
@@ -399,6 +401,7 @@ function checkCookie() {
   }
   gapi.load("client:auth2", function() {
     gapi.auth2.init({client_id: "815099258918-cd8kskc787th8t23klu8iase87qgmvdc.apps.googleusercontent.com"});
+    console.log("1");
   });
 </script>
 <button onclick="authenticate().then(loadClient)">authorize and load</button>
