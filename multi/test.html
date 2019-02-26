@@ -381,16 +381,13 @@ function checkCookie() {
   // Make sure the client is loaded and sign-in is complete before calling this method.
   function sendMsg1() {
     return gapi.client.youtube.liveChatMessages.insert({
-      "part": "snippet",
-      "resource": {
-        "snippet": {
+      "snippet":{
           "type": "textMessageEvent",
-          "liveChatId": "276756695320-nno1ibmk60pfhb1b9uj29l280n87aith.apps.googleusercontent.com",
+          "liveChatId": "EiEKGFVDN1BhSG93SU9DNWVYVmpFd01PdF9DQRIFL2xpdmU",
           "textMessageDetails": {
             "messageText": "TESTING BOT"
           }
         }
-      }
     })
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
