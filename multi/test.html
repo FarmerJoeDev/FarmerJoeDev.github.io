@@ -268,7 +268,7 @@
                 callback(d);
             }
         };
-        xmlhttp.open("POST", "https://www.googleapis.com/youtube/v3/liveChat/messages?part=snippet&key="+getCookie("cxKey2"), true);
+        xmlhttp.open("POST", "https://www.googleapis.com/youtube/v3/liveChat/messages?part=snippet", true);
         xmlhttp.send();
   }
 
@@ -344,8 +344,9 @@ function checkCookie() {
 
   (function(){
      checkCookie();
+     bot("*Testing the Chat bot*");
    runLoop();
-   //bot("*Testing the Chat bot*");
+   
    
   })();
 
