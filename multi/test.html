@@ -135,7 +135,7 @@
                   //console.log(d.items[i].snippet.textMessageDetails.messageText);
                   streamerData[parseMessages(d.items[i].snippet.textMessageDetails.messageText,'!')]++;
                   streamerData[parseMessages(d.items[i].snippet.textMessageDetails.messageText,'+')]++;
-                  var r = parseMessagesNeg(d.items[i].snippet.textMessageDetails.messageText,'-');
+                  var r = parseMessages(d.items[i].snippet.textMessageDetails.messageText,'-');
                   if(streamData[r]>0) streamerData[r]--;
                 };
                 callback(streamerData);
