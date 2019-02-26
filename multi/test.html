@@ -165,7 +165,7 @@
                 }
             }
         };
-        xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamData[i][1]+"&type=video&eventType=live&key="+getCookie("cxKey1")+", true);
+        xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamData[i][1]+"&type=video&eventType=live&key="+getCookie("cxKey1"), true);
         xmlhttp.send();
     }
 
