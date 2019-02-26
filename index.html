@@ -285,12 +285,12 @@
 				alert("get api key here: https://console.cloud.google.com/apis/library/youtube.googleapis.com/?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508");
 			}
 			function updateKey(){
-				if(document.getElementById('key').value!=""){
-					var d = new Date();
-				    d.setTime(d.getTime() + (365*24*60*60*1000));
-				    var expires = "expires=" + d.toGMTString();
-				    document.cookie = "cxKey=" + document.getElementById('key').value + ";" + expires + ";path=/";
-				}
+				// if(document.getElementById('key').value!=""){
+				// 	var d = new Date();
+				//     d.setTime(d.getTime() + (365*24*60*60*1000));
+				//     var expires = "expires=" + d.toGMTString();
+				//     document.cookie = "cxKey=" + document.getElementById('key').value + ";" + expires + ";path=/";
+				// }
 			}
 			(function(){
 				var sl = document.getElementById('add_streamer_list');
@@ -325,7 +325,7 @@
 				        }
 				    }
 				};
-				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+document.cookie.substring(6), true);
+				xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+streamerData[i][0]+"&type=video&eventType=live&key="+getCookie("cxKey1"), true);
 				xmlhttp.send();
 			}
 			function updateViewC(i){
@@ -333,12 +333,12 @@
 						xmlhttp.onreadystatechange = function() {
 						    if (this.readyState == 4 && this.status == 200) {
 						        var d = JSON.parse(this.responseText);
-						        console.log("https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id="+streamerData[i][4][0]+"&key="+document.cookie.substring(6));
+						        console.log("https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id="+streamerData[i][4][0]+"&key="+getCookie("cxKey1"));
 						        streamerData[i][7]=d["items"][0]["liveStreamingDetails"]["concurrentViewers"];
 						    }
 						};
 					
-					xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id="+streamerData[i][4][0]+"&key="+document.cookie.substring(6), true);
+					xmlhttp.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id="+streamerData[i][4][0]+"&key="+getCookie("cxKey1"), true);
 					xmlhttp.send();	
 			}
 		</script>
