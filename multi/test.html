@@ -317,9 +317,7 @@ function checkCookie() {
   var c2 = getCookie("cxKey2");
   var c3 = getCookie("cxId");
   var c4 = getCookie("cxChatId");
-  if (c1 != "") {
-    return;
-  } else {
+
     c1 = prompt("Please enter your yt api key 1:", "");
     if (c1 != "" && c1 != null) {
       setCookie("cxKey1", c1, 365);
@@ -336,7 +334,7 @@ function checkCookie() {
     if (c4 != "" && c4 != null) {
       setCookie("cxChatId", c4, 365);
     }
-  }
+  
 }
 
 //-----------------------------------------------------------------------
