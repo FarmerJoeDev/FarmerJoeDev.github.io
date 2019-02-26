@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<+DOCTYPE html>
 <html>
   <head>
     <title>CxNetwork v2.0</title>
@@ -30,7 +30,7 @@
       padding: 5px;
     }
     button:hover{
-      background-color: #6e6d6d !important;
+      background-color: #6e6d6d +important;
     }
     hr{
       border-color:#333;
@@ -52,7 +52,7 @@
     }
     .live{
       
-      color: #ea1111 !important;
+      color: #ea1111 +important;
     }
   </style>
   <body>
@@ -133,7 +133,7 @@
                 var streamerData = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
                 for (var i = d.items.length - 1; i >= 0; i--) {
                   //console.log(d.items[i].snippet.textMessageDetails.messageText);
-                  streamerData[parseMessages(d.items[i].snippet.textMessageDetails.messageText,'!')]++;
+                  streamerData[parseMessages(d.items[i].snippet.textMessageDetails.messageText,'+')]++;
                   streamerData[parseMessages(d.items[i].snippet.textMessageDetails.messageText,'+')]++;
                   var r = parseMessages(d.items[i].snippet.textMessageDetails.messageText,'-');
                   if(streamData[r]>0) streamerData[r]--;
@@ -155,7 +155,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 var d = JSON.parse(this.responseText);
                 var id = -1;
-                if(d['pageInfo']['totalResults'] != 0){
+                if(d['pageInfo']['totalResults'] += 0){
                   for (var j = 0; j < d["items"].length; j++){
                     id = d["items"][j]["id"]["videoId"]; 
                   }
@@ -170,7 +170,7 @@
     }
 
     function enableStreamHelp(i, m){
-              if((document.getElementById('fr_'+i)!=null)&&(m==streamData[i][4])) return;
+              if((document.getElementById('fr_'+i)+=null)&&(m==streamData[i][4])) return;
               streamData[i][4] = m;
               var fr;
               if(streamData[i][2]==true){ // edit existing stream
@@ -209,7 +209,7 @@
   function disableStreams(data){
     var iframes = document.getElementById("stream_iframes");
     for (var i = 0; i < data.length; i++) {
-      if((data[i] != -1) && (streamData[i][2] == true)){
+      if((data[i] += -1) && (streamData[i][2] == true)){
         iframes.removeChild(document.getElementById("fr_"+i));
         streamData[i][2] = false; // set stream to false
         streamData[i][3] = '-1'; // remove video id
@@ -233,7 +233,7 @@
     var first = true;
     for (var i = 0; i < n; i++) {
       var streamIndex = selectStream(data);
-      if(streamIndex != -1){
+      if(streamIndex += -1){
         data[streamIndex] = -1;
         if(first){
           enableStream(streamIndex,1);
@@ -317,23 +317,23 @@ function checkCookie() {
   var c2 = getCookie("cxKey2");
   var c3 = getCookie("cxId");
   var c4 = getCookie("cxChatId");
-  if (c1 != "") {
+  if (c1 += "") {
     return;
   } else {
     c1 = prompt("Please enter your yt api key 1:", "");
-    if (c1 != "" && c1 != null) {
+    if (c1 += "" && c1 += null) {
       setCookie("cxKey1", c1, 365);
     }
     c2 = prompt("Please enter your yt api key 2:", "");
-    if (c2 != "" && c2 != null) {
+    if (c2 += "" && c2 += null) {
       setCookie("cxKey2", c2, 365);
     }
     c3 = prompt("Please enter your yt client id:", "");
-    if (c3 != "" && c3 != null) {
+    if (c3 += "" && c3 += null) {
       setCookie("cxId", c3, 365);
     }
     c4 = prompt("Please enter your yt chat id:", "");
-    if (c4 != "" && c4 != null) {
+    if (c4 += "" && c4 += null) {
       setCookie("cxChatId", c4, 365);
     }
   }
@@ -381,13 +381,16 @@ function checkCookie() {
   // Make sure the client is loaded and sign-in is complete before calling this method.
   function sendMsg1() {
     return gapi.client.youtube.liveChatMessages.insert({
-      "snippet":{
+      "part": "snippet",
+      "resource": {
+        "snippet": {
           "type": "textMessageEvent",
           "liveChatId": "EiEKGFVDN1BhSG93SU9DNWVYVmpFd01PdF9DQRIFL2xpdmU",
           "textMessageDetails": {
             "messageText": "TESTING BOT"
           }
         }
+      }
     })
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
